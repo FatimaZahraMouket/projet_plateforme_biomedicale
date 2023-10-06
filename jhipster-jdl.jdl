@@ -1,0 +1,96 @@
+entity User {
+}
+
+entity Medecin {
+  specialite String
+}
+
+entity Patient {
+  profession String
+}
+
+entity Boitier {
+  type String
+  ref String
+  nbrBranche Integer
+}
+
+entity Capteur {
+  type String
+  photo ImageBlob
+  valeurMin Long
+  valeurMax Long
+}
+
+entity Mesure {
+  type String
+  valeur Long
+  date LocalDate
+}
+
+entity Camera {
+  nom String
+  resolution String
+}
+
+entity Video {
+  nom String
+  dateCapture LocalDate
+  duree Integer
+}
+
+entity ExtraUser {
+  cin String
+  numeroTelephone Long
+  dateNaissance LocalDate
+  nationalite String
+  adresse String
+  genre String
+}
+
+entity MedecinPatient {
+  dateDebut LocalDate
+  dateFin LocalDate
+}
+
+entity BoitierPatient {
+  dateDebut LocalDate
+  dateFin LocalDate
+}
+
+entity BoitierCapteur {
+  branche String
+  etat Boolean
+}
+
+relationship OneToMany {
+  Camera{videos} to Video{camera}
+}
+
+relationship OneToMany {
+  Camera{boitier} to Boitier{camera}
+}
+
+relationship OneToOne {
+  Patient{ExtraUserId} to ExtraUser
+  Medecin{ExtraUserId} to ExtraUser
+  ExtraUser{user} to User{User}  
+}
+relationship OneToMany {
+  Patient to Mesure
+}
+
+relationship ManyToOne {
+  MedecinPatient{medecins} to Medecin{medecinPatients}
+  MedecinPatient{patients} to Patient{medecinPatients}
+}
+
+relationship ManyToOne {
+  BoitierCapteur{boitiers} to Boitier{boitierCapteurs}
+  BoitierCapteur{capteurs} to Capteur{boitierCapteurs}
+}
+
+relationship ManyToOne {
+  BoitierPatient{boitiers} to Boitier{boitierPatients}
+  BoitierPatient{patients} to Patient{boitierPatients}
+}

@@ -1,0 +1,40 @@
+{
+  "applications": "*",
+  "changelogDate": "20231005190950",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "capteur",
+  "fields": [
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "photo",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "valeurMin",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "valeurMax",
+      "fieldType": "Long"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Capteur",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "boitierCapteur",
+      "otherEntityRelationshipName": "capteurs",
+      "relationshipName": "boitierCapteurs",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

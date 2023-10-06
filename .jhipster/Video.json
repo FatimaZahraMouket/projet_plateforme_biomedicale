@@ -1,0 +1,35 @@
+{
+  "applications": "*",
+  "changelogDate": "20231006101304",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "video",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateCapture",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "duree",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Video",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "camera",
+      "otherEntityRelationshipName": "videos",
+      "relationshipName": "camera",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}
